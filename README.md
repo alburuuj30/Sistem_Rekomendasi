@@ -144,7 +144,7 @@ Split Dataset Membagi dataset menjadi 2 bagian, sebagai test data dan train data
 teknik yang digunakan pada proyek ini menggunkana teknik *Content-Based Filtering dan Collaborative Filtering*
 
 ### *Content Based Filtering*
-Metode ini melakukan feature engineering dengan mengandalkan library *TfidVectorizer* dari library scikit-learn. Metode ini memiliki tujuan untuk memprediksi persamaan sejumlah informasi yang didapat dari pengguna. Dalam pengaplikasiannya, *content based filtering* menggunakan konsep perhitungan vectoru, TF-IDF, dan Cosine Similarity yang bermaksud mengkonversikan data/teks menjadi berbentuk vector.
+Metode ini melakukan feature engineering dengan mengandalkan library *TfidVectorizer* dari library scikit-learn. Metode ini memiliki tujuan untuk memprediksi persamaan sejumlah informasi yang didapat dari pengguna. Dalam pengaplikasiannya, *content based filtering* menggunakan konsep perhitungan TF-IDF dan Cosine Similarity yang bermaksud mengkonversikan data/teks menjadi berbentuk vector.
 
 ![image](https://user-images.githubusercontent.com/75149615/205967282-56ea5375-598d-4a82-a6f0-78587d41ed7d.png)
 
@@ -175,10 +175,20 @@ Sehingga menghasilkan 6 rekomendasi buku dengan author yang sama sesuai dengan a
 | 6 |  The King of Torts | John Grisham | http://images.amazon.com/images/P/0385508042.0... |
 
 ### Collaborative Filtering
-Pada teknik ini proses pembuatan rekomendasi menggunakan model Deep Learning. Langkah yang pertama yaitu dengan menggabungkan data buku dan rating. Setelah itu melakukan penyandian terhadap data User-ID dan ISBN dan memisahkan data latih dan data validasi dengan ratio 80:20.
+Pada teknik ini proses pembuatan rekomendasi menggunakan model Deep Learning. Langkah yang pertama yaitu dengan menggabungkan data buku dan rating. Setelah itu melakukan penyandian terhadap data User-ID dan ISBN dan memisahkan data latih dan data validasi dengan ratio 80:20. Membuat model untuk dilakukannya pelatihan pada data. Model ini menggunakan operasi perkalian dot product antara embedding *user* dan *book*. Skor kecocokan ditetapkan dalam skala [0,1] dengan fungsi aktivasi sigmoid. Untuk mendapatkan hasil rekomendasi, dipilih User-ID secara acak dan akan dilakukan penyaringan daftar buku yang belum pernah dibaca oleh user.
 Setelah model dibuat dan dilatih, berikut adalah hasil rekomendasi dari model ini.
 
-![image](https://user-images.githubusercontent.com/75149615/205973285-ff062adf-47be-4f1c-ae67-a8c509fb1af7.png)
+|              Book With high Ratings from User             |                                 Les Fleurs Du Mal                                 |
+|:---------------------------------------------------------:|:---------------------------------------------------------------------------------:|
+|                         The Client                        |                               Elements of Style 3ED                               |
+|                      Of Mice and Men                      |             Fox in Socks (I Can Read it All by Myself Beginner Books)             |
+| Dont Roll Your Eyes at Me, Young Man! A Zits SketchBook 3 | The Baby Book: Everything You Need To Know Abaout Your Baby from Birth to Age Two |
+|                                                           |                                    Harry Potter                                   |
+|                                                           |                               A Kiss for Little Bear                              |
+|                                                           |                                     The Lorax                                     |
+|                                                           |                The Blue Day Book : A Lesson in Cheering Yourself Up               |
+|                                                           |                            Le Combat ordinaire, tome 1                            |
+|                                                           |                 The Art of Shen Ku : The Ultimate Traveleres Guide                |
 
 # Evaluation
 ---
